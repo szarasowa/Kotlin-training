@@ -9,12 +9,13 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var sizeInt = 33
+    lateinit var diceImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        diceImage = findViewById(R.id.dice_image)
         val rollButton: Button = findViewById(R.id.roll_button)
 
         rollButton.setOnClickListener {
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val diceImage: ImageView = findViewById(R.id.dice_image)
 
         val drawableSrc = when (Random().nextInt(6)+1) {
             1 -> R.drawable.dice_1
